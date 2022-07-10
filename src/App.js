@@ -1,13 +1,25 @@
+import categories from './api';
 import './App.css';
+import Banner from './components/Banner';
+import Row from './components/Row';
 
 function App() {
   return (
     <div className="App">
-      Hello World
       {/* Navbar */}
-      {/* Destaques */}
+     <Banner/>
       {/* Em alta */}
-      {/* Filmes por categoria */}
+
+      {categories.map((category,index) => {
+        return(
+          <Row 
+            key={category.name} 
+            title={category.title}
+            path={category.path}
+            isLarge={category.isLarge}
+          />
+        )
+      })}
     </div>
   );
 }
