@@ -1,15 +1,14 @@
 import categories from './api';
 import './App.css';
 import Banner from './components/Banner';
+import Navbar from './components/Navbar';
 import Row from './components/Row';
 
 function App() {
   return (
     <div className="App">
-      {/* Navbar */}
+     <Navbar/>
      <Banner/>
-      {/* Em alta */}
-
       {categories.map((category,index) => {
         return(
           <Row 
