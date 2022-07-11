@@ -24,10 +24,14 @@
 
 .movie-card-large {
   object-fit: contain;
-  width: 100%;
+  width: auto;
   max-height: 250px;
   margin-bottom: 10px;
   transition: transform 450ms;
+}
+
+.movie-card-large + .movie-card-large {
+  margin-left: 2rem
 }
 
 .movie-card:hover {
