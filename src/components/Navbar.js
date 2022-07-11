@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Navbar.css'
 
 
@@ -14,8 +14,22 @@ export default function Navbar() {
     alt: 'Netflix'
   }
 
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    window.addEventListener('scroll',()=>{
+      setShow(window.scrollY > 100)
+    })
+  
+    return () => {
+      // window.removeEventListener('scroll')
+    }
+  }, [])
+  
+
+
   return (
-   <div className="nav-container">
+    
+    < div className={`nav-container ${show && 'nav-container-black'}`}>
     <img src={NetflixInfo.logo} alt={NetflixInfo.alt} className="nav-logo" />
     <img src={userProfile.avatar} alt={`Avatar de ${userProfile.name}`} className="nav-avatar" />
    </div>
