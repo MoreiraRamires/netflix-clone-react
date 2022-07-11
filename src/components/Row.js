@@ -1,4 +1,5 @@
 import React, {  useEffect, useState} from 'react'
+import movieTrailer from 'movie-trailer'
 import ReactPlayer from 'react-player';
 import { getMovies } from '../api'
 import './Row.css'
@@ -25,11 +26,16 @@ function Row({title,path,isLarge}) {
   }, [path]);
 
   const handleOnClick = (movie) => {
-    //pegar url trailer 
+  
+    movieTrailer (movie?.title ||movie?.name ||movie?.original_name )
+      .then( response => 
+        setTrailerUrl(response)
+      )
 
-    // pegar video no youtube
-    setTrailerUrl('https://www.youtube.com/watch?v=ysz5S6PUM-U')
-
+      .catch((error)=>{
+        console.log("movieTrailer error: ",error)
+      })
+  //proxima feature é implementar o modal
   }
   
   return (
